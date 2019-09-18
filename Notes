@@ -1,0 +1,9 @@
+Copy files on to CLIMB server
+scp TBrun444.zip ubuntu@137.205.69.46:Suheir/
+unzip TBrun444.zip
+
+List reads for snippy-multi
+ls | grep gz | xargs -n 2 | while read i; do 
+IFS=' ' read -r -a f <<< "$i";
+IFS='_' read -r -a n <<< "$i"; echo ${n[0]}$'\t'${f[0]}$'\t'${f[1]}; done > lists/ID_reads_tab.list
+
